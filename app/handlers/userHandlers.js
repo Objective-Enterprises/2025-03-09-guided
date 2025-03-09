@@ -1,4 +1,4 @@
-import UserService from '../service/userService'
+const UserService = require('../service/userService.js')
 
 const service = new UserService()
 
