@@ -43,6 +43,11 @@ function login (request, response) {
   })
 }
 
+module.exports = {
+  getAll,
+  getByUsername,
+  login
+}
 
 
 

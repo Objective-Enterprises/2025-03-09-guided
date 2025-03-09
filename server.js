@@ -3,7 +3,7 @@ const url = require("url");
 
 // Importing handlers for products and users
 const producthandlers = require("./app/handlers/productHandlers");
-// WRITE YOUR CODE HERE TO IMPORT USER HANDLER
+const userHandlers = require('./app/handlers/userHandlers')
 
 // Creating an HTTP server
 // EXPLAIN THE CODE OF CREATING SERVER AND PARSING URL
@@ -28,9 +28,17 @@ const server = http.createServer((req, res) => {
 
     // Handling user-related routes
     // WRITE YOUR CODE TO HANDLE USER RELATED ROUTES\
+    case "/v1/users": {
+      if (parts.query.username) {
+        return userHandlers.getByUsername(parts.query.username, res)
+      }
+      return userHandlers.getAll(res)
+    }
 
     // Handling login route
-    // WRITE YOUR CODE TO HANDLE LOGIN ROUTE
+    case "/v1/login": {
+      return userHandlers.login(req, res)
+    }
 
     // Handling default case for unknown routes
     // EXPLAIN THE DEFAULT CASE
