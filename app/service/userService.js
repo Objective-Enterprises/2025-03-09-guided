@@ -24,3 +24,5 @@ class UserService {
     return user.password === password
   }
 }
+
+module.exports = UserService
