@@ -9,13 +9,13 @@ class UserService {
     return this.users
   }
 
-  getUserByUsername (username) {
+  getByUsername (username) {
     const user = this.users.find(user => user.username === username)
     return user
   }
 
   login (username, password) {
-    const user = this.getUserByUsername(username)
+    const user = this.getByUsername(username)
 
     if (!user) {
       return false
